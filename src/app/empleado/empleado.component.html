@@ -1,0 +1,25 @@
+<p>Nombre de empleado: {{nombre}}</p>
+<p>Apellido de empleado: {{apellido}}</p>
+<p>Edad de empleado: {{edad <18 ? 'Menor de edad':'Mayor de edad'}}</p>
+<p>Empresa de empleado: {{empresa.value}}</p>
+
+<p>Introducir Empresa: <input type="text" #empresa (keyup)=0> </p>
+<!-- con keyup en 0 hago que cuando escribo la empresa, la cargue a empleados al mismo tiempo -->
+
+<br/>
+<br/>
+
+<input type="button" value="Cargar Empresa" (click)="cargaEmpresa(empresa.value)"/>
+<!-- con click, cago la empresa con el click -->
+
+<br/>
+<br/>
+
+<p>Registrado: <input type="checkbox" id="registro" [checked]="usuRegistrado"/></p>
+<!-- Binding -->
+<!-- Con el checked, tilda el chebox por default -->
+
+{{getRegistroUsuario()}}
+
+<!-- otra forma de Binding -->
+
