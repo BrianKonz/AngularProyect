@@ -10,21 +10,35 @@ export class EmpleadoComponent implements OnInit {
   nombre = 'Brian';
   apellido = 'Konz';
   edad = 29;
-  //empresa = 'Tufud'
+  empresa = 'Google'
+
 
   cargaEmpresa(value:String){
     //Esta función sirve para cargar la empresa desde el botón.
   };
 
   usuRegistrado = false;
-  // para hacer el binding
+  // Property para hacer el binding
+
+  textoDeRegistro = "No hay nadie registrado";
 
   getRegistroUsuario () {
     this.usuRegistrado = false;
   };
-  // binding con función
+  // Property binding con función
 
 
+  setUsuarioRegistrado (event:Event){
+    //alert('se acaba de registrar un usuario')
+
+    if((<HTMLInputElement>event.target).value=="si"){
+      this.textoDeRegistro = "El usuario se acaba de registrar";
+    } else {
+      this.textoDeRegistro = "No hay nadie registrado";
+    }
+
+
+  }
 
   constructor() { }
 

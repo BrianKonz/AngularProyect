@@ -1,25 +1,32 @@
 <p>Nombre de empleado: {{nombre}}</p>
 <p>Apellido de empleado: {{apellido}}</p>
 <p>Edad de empleado: {{edad <18 ? 'Menor de edad':'Mayor de edad'}}</p>
-<p>Empresa de empleado: {{empresa.value}}</p>
+<p>Empresa del empleado: {{empresa}}</p>
 
-<p>Introducir Empresa: <input type="text" #empresa (keyup)=0> </p>
+    <!--<p>Empresa de empleado: {{empresa.value}}</p>-->
+
+<!--<p>Introducir Empresa: <input type="text" #empresa (keyup)=0> </p>-->
 <!-- con keyup en 0 hago que cuando escribo la empresa, la cargue a empleados al mismo tiempo -->
 
+<p>Introducir Empresa: <input type="text" [(ngModel)]="empresa"> </p>
+<!-- con el ngModel puedo crear un binding bidireccional. Estoy quiere decir que la propiedad esta cargada desde el typescript y tambien puede modificarse desde el html (IMPORTANTE: Para usar el ngModel hay que importarlo en app.module en la parte de imports como FormsModule) -->
+
 <br/>
 <br/>
 
-<input type="button" value="Cargar Empresa" (click)="cargaEmpresa(empresa.value)"/>
+<!-- <input type="button" value="Cargar Empresa" (click)="cargaEmpresa(empresa.value)"/>-->
 <!-- con click, cago la empresa con el click -->
 
 <br/>
 <br/>
-
-<p>Registrado: <input type="checkbox" id="registro" [checked]="usuRegistrado"/></p>
-<!-- Binding -->
+{{textoDeRegistro}}
+<p>Registrado: <input type="radio" value="si" name="nRegistro" id="registro" [checked]="usuRegistrado" (click)="setUsuarioRegistrado($event)"/></p>
+<!-- con el $event capturo el objeto para llevarlo al archivo ts y reutilizarlo. Con el Value los puedo diferenciar -->
+<p>No registrado: <input type="radio" value="no" name="nRegistro" (click)="setUsuarioRegistrado($event)" /></p>
+<!-- Property  y event binding -->
 <!-- Con el checked, tilda el chebox por default -->
 
 {{getRegistroUsuario()}}
 
-<!-- otra forma de Binding -->
+<!-- otra forma de Property Binding -->
 
